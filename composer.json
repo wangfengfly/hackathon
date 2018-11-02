@@ -1,0 +1,7 @@
+{
+  "require": {
+    "elasticsearch/elasticsearch": "~6.0",
+    "paquettg/php-html-parser": "^1.7",
+    "jonnyw/php-phantomjs": "4.*"
+  }
+}

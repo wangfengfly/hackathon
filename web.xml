@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project mode="" session="disable">
+    <system>
+        <class>class</class>
+        <temp>temp</temp>
+        <template>template</template>
+        <cache>cache</cache>
+    </system>
+    <phpbin>/usr/local/bin/php</phpbin>
+    <pages cache="false"/>
+    <permission complexVerify="false"/>
+</project>

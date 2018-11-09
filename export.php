@@ -7,11 +7,13 @@
 
 $dbh = new PDO('mysql:host=10.139.22.181;dbname=hackathon', 'dhuser', 'dhdev123');
 $dbh->exec('set names utf8');
-$sql = 'select title,content from articles where id>1979';
+$sql = 'select id,url,title,content from articles where id>1979';
 
-$data = [];
+$filename = '/tmp/articles.json';
+@unlink($filename);
+
 foreach($dbh->query($sql) as $row){
-    $data[] = ['title'=>$row['title'], 'content'=>$row['content']];
+    $r = ['id'=>$row['id'], 'url'=>$row['url'], 'title'=>$row['title'], 'content'=>$row['content']];
+    $r = json_encode($r, JSON_UNESCAPED_UNICODE).PHP_EOL;
+    file_put_contents($filename, $r, FILE_APPEND);
 }
-
-file_put_contents('/tmp/articles.json', json_encode($data, JSON_UNESCAPED_UNICODE));
